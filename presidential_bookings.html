@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presidential Detailing – Service Packages</title>
+  <!--
+    This page presents booking options for Presidential Detailing in a card style
+    inspired by the Miro board screenshot provided by the user. Each card
+    displays a description, pricing for different vehicle sizes and a call‑to‑action.
+    The images used here (the logo and car silhouette) reside in the same folder
+    as this HTML file. Replace or update those images as desired.
+  -->
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6;
+      color: #1a1a1a;
+    }
+    .header {
+      background-color: #002a4a;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .header img {
+      height: 80px;
+      margin-right: 20px;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    .header p {
+      margin: 4px 0 0 0;
+      font-size: 14px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    /* Service card styles */
+    .service-card {
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+      margin-bottom: 30px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .service-image {
+      flex: 1 1 300px;
+      background-color: #e5e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .service-image img {
+      max-width: 100%;
+      height: auto;
+    }
+    .service-details {
+      flex: 1 1 400px;
+      padding: 20px 25px;
+      background-color: #0f172a;
+      color: #f3f4f6;
+    }
+    .service-details h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #a3e635;
+    }
+    .price-options {
+      margin: 10px 0;
+    }
+    .price-options span {
+      display: inline-block;
+      background-color: #1e293b;
+      color: #fef08a;
+      padding: 6px 12px;
+      margin: 4px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .price-options span.featured {
+      background-color: #16a34a;
+      color: #fff;
+    }
+    .qty {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .qty label {
+      margin-right: 10px;
+    }
+    .qty input {
+      width: 50px;
+      padding: 4px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .meta {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .service-details p {
+      font-size: 15px;
+      margin: 6px 0;
+    }
+    .service-details ul {
+      margin: 6px 0 12px 0;
+      padding-left: 18px;
+    }
+    .service-details ul li {
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    .book-btn {
+      display: inline-block;
+      background-color: #16a34a;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 14px;
+    }
+    .fine-print {
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* New sections for updated page */
+    .info-box {
+      background-color: #fefce8;
+      border-left: 4px solid #fbbf24;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    .info-box h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+    .info-box ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin: 0;
+    }
+    .info-box ul li {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .cta-wrapper {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .cta-button {
+      background-color: #16a34a;
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      display: inline-block;
+      transition: background-color 0.2s;
+    }
+    .cta-button:hover {
+      background-color: #15803d;
+    }
+
+    .service-menu {
+      margin-top: 40px;
+    }
+    .service-menu h2 {
+      color: #0f172a;
+      margin-top: 0;
+    }
+    .pricing-note {
+      font-size: 14px;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .service-item {
+      background-color: #0f172a;
+      color: #f3f4f6;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .service-item h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 18px;
+      color: #a3e635;
+    }
+    .service-item p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .instagram-section {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .instagram-section h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    .instagram-feed {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .insta-item {
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 240px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+    .insta-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .insta-item span {
+      display: block;
+      padding: 8px 12px;
+      font-size: 13px;
+      color: #0f172a;
+    }
+
+    .contact-form-section {
+      margin-top: 40px;
+    }
+    .contact-form-section h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      color: #0f172a;
+      text-align: center;
+    }
+    .contact-form-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .contact-form-section label {
+      font-weight: bold;
+      color: #0f172a;
+      font-size: 14px;
+    }
+    .contact-form-section input,
+    .contact-form-section textarea {
+      padding: 10px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 14px;
+      width: 100%;
+    }
+    .submit-btn {
+      background-color: #16a34a;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background-color: #15803d;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      text-align: center;
+      background-color: #f1f5f9;
+      color: #0f172a;
+    }
+    .footer p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+    .footer a {
+      color: #0f172a;
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .service-card {
+        flex-direction: column;
+      }
+      .service-image, .service-details {
+        flex: 1 1 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div style="display:flex; align-items:center;">
+      <img src="logo_cropped_full.png" alt="Presidential Detailing logo">
+      <div>
+        <h1>Presidential Detailing</h1>
+        <p>Your ride, treated like royalty.</p>
+      </div>
+    </div>
+    <div style="text-align:right; font-size:14px;">
+      <p><strong>Serving Central Florida</strong></p>
+      <p>Call us: <a href="tel:+18633495975" style="color:#fbbf24; text-decoration:none;">(863) 349‑5975</a></p>
+      <!-- Updated Instagram link -->
+      <p>IG: <a href="https://www.instagram.com/pres.identialdetailing" target="_blank" style="color:#fbbf24; text-decoration:none;">@pres.identialdetailing</a></p>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Important information before booking -->
+    <section class="info-box">
+      <h2>Important Info Before Booking</h2>
+      <ul>
+        <li>$50 deposit secures your appointment</li>
+        <li>Final price depends on vehicle size &amp; condition</li>
+        <li>Service takes 3–6&nbsp;hours depending on package</li>
+        <li>We come to you — mobile detailing available</li>
+      </ul>
+    </section>
+
+    <!-- Call to action button -->
+    <div class="cta-wrapper">
+      <a href="https://tidycal.com/agustinlozano863/60-minute-meeting" target="_blank" class="cta-button">Secure Your Spot – $50 Deposit</a>
+    </div>
+
+    <!-- Service menu without pricing -->
+    <section class="service-menu">
+      <h2>Our Services</h2>
+      <p class="pricing-note">Exact pricing varies depending on vehicle condition and size. We'll finalize your price after you book.</p>
+      <div class="service-grid">
+        <div class="service-item">
+          <h3>Interior Steam &amp; Sanitize</h3>
+          <p>Deep clean plastic, vinyl &amp; leather, odor removal.</p>
+        </div>
+        <div class="service-item">
+          <h3>Exterior Hand Wash + Foam Cannon</h3>
+          <p>Spotless foam rinse and gentle microfiber wash.</p>
+        </div>
+        <div class="service-item">
+          <h3>Pet Hair Removal</h3>
+          <p>Removes stubborn embedded pet hair.</p>
+        </div>
+        <div class="service-item">
+          <h3>Engine Bay Cleaning</h3>
+          <p>Degreased and detailed under the hood.</p>
+        </div>
+        <div class="service-item">
+          <h3>Ceramic Coating</h3>
+          <p>UV protection, water beading &amp; gloss.</p>
+        </div>
+        <div class="service-item">
+          <h3>Tire &amp; Rim Shine</h3>
+          <p>Detailed gloss and restoration for rims &amp; tires.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram feed placeholder -->
+    <section class="instagram-section">
+      <h2>Follow Us on Instagram</h2>
+      <!-- If you have an embed code from an Instagram widget provider, paste it below -->
+      <p>Stay up‑to‑date with our latest projects and behind‑the‑scenes moments.</p>
+      <div class="instagram-feed">
+        <div class="insta-item"><img src="logo_cropped_full.png" alt="Instagram post 1"><span>Detailing day – 07/12/25</span></div>
+        <div class="insta-item"><img src="logo_cropped_full.png" alt="Instagram post 2"><span>Shine &amp; protect – 06/28/25</span></div>
+        <div class="insta-item"><img src="logo_cropped_full.png" alt="Instagram post 3"><span>Interior makeover – 06/15/25</span></div>
+      </div>
+    </section>
+
+    <!-- Contact form (optional) -->
+    <section class="contact-form-section">
+      <h2>Have Questions? Reach Out</h2>
+      <form action="mailto:contact@presidentialdetailing.com" method="post" enctype="text/plain">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="vehicle">Type of Vehicle</label>
+        <input type="text" id="vehicle" name="vehicle" required>
+
+        <label for="condition">Interior Condition (1–10)</label>
+        <input type="number" id="condition" name="condition" min="1" max="10" required>
+
+        <label for="requests">Special Requests</label>
+        <textarea id="requests" name="requests" rows="3"></textarea>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </section>
+
+    <!-- Footer contact information -->
+    <footer class="footer">
+      <p>Follow us on Instagram: <a href="https://www.instagram.com/pres.identialdetailing" target="_blank">@pres.identialdetailing</a></p>
+      <p>Phone: <a href="tel:+18633495975">(863) 349‑5975</a></p>
+      <p><a href="https://tidycal.com/agustinlozano863/60-minute-meeting" target="_blank">Book My Detail Now</a></p>
+    </footer>
+  </div>
+</body>
+</html>
